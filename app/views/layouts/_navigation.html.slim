@@ -11,3 +11,8 @@ nav.navbar.navbar-inverse.navbar-fixed-top
     .collapse.navbar-collapse
       ul.nav.navbar-nav
         == render 'layouts/navigation_links'
+        - if user_signed_in?
+          = link_to 'Sing_Out', destroy_user_session_path, :method => :delete, class: 'navbar-brand'
+        - else
+          = link_to 'Sing_Up', new_user_registration_path, class: 'navbar-brand'
+          = link_to 'Sing_in', new_user_session_path, class: 'navbar-brand'

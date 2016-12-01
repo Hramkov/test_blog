@@ -1,0 +1,19 @@
+// Place all the styles related to the Posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#back_button{
+	margin-left: 10px;
+}
+.row_spasing{
+	border-spacing: 7px 11px;
+}
+td{
+	padding: 5px;
+}
+.pagination {
+    margin: 0;
+}
+.butt_read_more{
+	float: right;
+	margin-top: 10px !important;
+}

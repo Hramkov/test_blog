@@ -1,0 +1,29 @@
+.container
+  h1.text-center
+    = @post.title
+  p
+    = image_tag @post.image.url(:large), class: 'img-show' if @post.image?
+  p.text-left
+    = @post.body
+  p.text-left
+    = link_to 'Edit', edit_post_path(@post), class: 'btn btn-warning'
+    = link_to 'Back', posts_path, class: 'btn btn-info', id: 'back_button'
+  span.text-left 
+  = "Views number: #{@post.impressionist_count(:filter => :ip_address)}" 
+hr
+.container
+  h1 Random Posts
+  .col-md-6
+    - @posts.shuffle.take(1).each do |post|
+      = image_tag post.image.url(:large), class: 'img-show' if post.image?
+      h1= post.title
+      = post.body
+      p.butt_read_more
+        = link_to 'Read more', post, class: 'btn btn-success'
+  .col-md-6
+    - @posts.shuffle.take(1).each do |post|
+      = image_tag post.image.url(:large), class: 'img-show' if post.image?
+      h1= post.title
+      = post.body
+      .butt_read_more
+        = link_to 'Read more', post, class: 'btn btn-success'

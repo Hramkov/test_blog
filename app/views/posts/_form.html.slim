@@ -1,0 +1,16 @@
+= simple_form_for(@post) do |f|
+  = f.error_notification
+
+  .form-inputs
+    .form-group
+      = f.input :title
+    .form-group
+      = f.label :image
+      = f.file_field :image
+    .form-group  
+      = f.input :body
+  .form-actions
+    = f.button :submit, class: 'btn btn-info'
+    = link_to 'Back', posts_path, class: 'btn btn-warning', id: 'back_button'
+  javascript:
+    $(":file").filestyle({input: false});
