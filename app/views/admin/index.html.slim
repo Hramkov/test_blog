@@ -1,0 +1,19 @@
+h1 Users
+table
+  thead
+    thead
+      tr
+        th Email
+        th Role
+        th
+        th
+        th
+  tbody
+    - @users.each do |user|
+      tr
+        td = user.email
+        td = user.roles.first.name
+        td = form_tag("/admin/" + user.id.to_s + "?role=coperator", method: :PUT) do
+            input type="submit" value=("Make Coperator")
+        td = link_to 'Edit', edit_user_registration_path(user), class: 'btn btn-warning', id: 'back_button'
+

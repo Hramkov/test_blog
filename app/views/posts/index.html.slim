@@ -18,6 +18,7 @@
           td = short_body(post.body)
           td = link_to 'Show', post, class: 'btn btn-success'
           td = link_to 'Edit', edit_post_path(post), class: 'btn btn-warning', id: 'back_button'
+          / - if current_user.has_role? :admin
           td = link_to 'Destroy', post, data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-danger', id: 'back_button'
 
   br
@@ -26,3 +27,6 @@
       = link_to 'New Post', new_post_path, class: 'btn btn-info'
     .col-md-4
       = will_paginate @posts, renderer: BootstrapPagination::Rails
+
+  / - if current_user.has_role? :admin
+  /   = link_to 'New Post', new_post_path

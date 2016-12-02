@@ -5,4 +5,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :posts
+  after_create :assign_role
+
+  def assign_role
+    add_role(:coperator)
+  end
 end
